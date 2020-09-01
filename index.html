@@ -8,6 +8,7 @@
     <!-- Ahora cargamos las hojas de estilo necesarias -->
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="js/index.js" defer></script>
     <title></title>
   </head>
@@ -16,15 +17,22 @@
     <main id="container">
       <form action="">
         <p>Nombre:</p>
-        <input type="text" name="name" id="name" /><br />
+        <input type="text" name="name" id="name" required/><br />
         <p>Email:</p>
-        <input type="text" name="email" id="email" /><br />
+        <input type="text" name="email" id="email" required/><br />
         <p>Teléfono:</p>
-        <input type="text" name="phone" id="phone" /><br /><br />
-        <input type="submit" id="save" value="Guardar" />
+        <input type="text" name="phone" id="phone" required/><br /><br />
+        <input type="submit" id="save" value="Guardar" required />
         <input type="reset" id="clearAll" value="Borrar TODO listado" />
       </form>
-      <div id="listado"></div>
+      <div id="listado">
+      <div id="tit">
+        <p class="titName">NOMBRE</p>
+        <p class="titMail">EMAIL</p>
+        <p class="titPhone">TELÉFONO</p>
+      </div>;
+      
+      </div>
     </main>
     <footer></footer>
   </body>

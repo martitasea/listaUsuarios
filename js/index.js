@@ -6,50 +6,47 @@
 // - Botón para borrar todos los usuarios
 // - Podemos añadir un avatar random para cada usuario: http://avatars.adorable.io/
 // - Puede ser de ayuda JSON.parse() y JSON.stringify() para guardar múltiples datos en una misma key
+let arr = [];
+
 
 function meterDatos() {
-  let name = localStorage.setItem(
-    "nombre",
-    document.getElementById("name").value
-  );
-  let email = localStorage.setItem(
-    "email",
-    document.getElementById("email").value
-  );
-  let phone = localStorage.setItem(
-    "telefono",
-    document.getElementById("phone").value
-  );
+  // if(localStorage.getItem("usuarios")){
+  //   arr=JSON.parse(localStorage.getItem("usuarios"));
+  // }
+  // else{
+  //   arr = [];
+  // }
+  localStorage.getItem("usuarios")
+    ? (arr = JSON.parse(localStorage.getItem("usuarios")))
+    : (arr = []);
+
+  let newDat = {
+    nombre: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    telefono: document.getElementById("phone").value,
+  };
+  arr.push(newDat);
+  localStorage.setItem("usuarios", JSON.stringify(arr));
 }
 
 function escribirDatos() {
-  let info = `
-  <ul>
-        <li>${localStorage.getItem("nombre")}</li>
-        <li>${localStorage.getItem("email")}</li>
-        <li>${localStorage.getItem("telefono")}</li>
-        </ul>`;
-  document.getElementById("listado").innerHTML += info;
+  let data = JSON.parse(localStorage.getItem("usuarios"));
+  console.log(data);
+  for (i = 0; i < data.length; i++) {
+    let info = `
+    <div id="data">
+    <img src="https://api.adorable.io/avatars/50/${data[i].email}.png" alt="avatar${i}">
+  <p class="dataName">${data[i].nombre}</p>
+  <p class="dataMail">${data[i].email}</p>
+  <p class="dataPhone">${data[i].telefono}</p><br>
+  </div>`;
+    document.getElementById("listado").innerHTML += info;
+  }
 }
-
 document.getElementById("save").onclick = () => {
   meterDatos();
 };
-
-escribirDatos();
-
-// document.getElementById(clearAll).onclick=()=>{
+// document.getElementById("reset").onclick = () => {
 //   localStorage.clear();
-// }
-
-// let name=localStorage.setItem("nombre", "marta");
-// let email=localStorage.setItem("email", "pulido");
-// let phone=localStorage.setItem("telefono", "2525");
-// let arr=[];
-// arr.push(localStorage.getItem("nombre"));  arr.push(localStorage.getItem("email"));
-// arr.push(localStorage.getItem("telefono"));
-// console.log(arr);
-// let obj=(localStorage.setItem())
-// let arr=localStorage.getItem("nombre");
-// arr=JSON.parse(arr);
-// console.log(arr);
+// };
+escribirDatos();

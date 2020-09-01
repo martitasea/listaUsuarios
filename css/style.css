@@ -1,7 +1,67 @@
 html{
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
-
 form{
-    margin:5vw;
+    margin:5vw;    
+}
+form input{
+    margin:0.5vh 0;
+    height: 30px;
+}
+div#tit{
+    display: flex;
+    flex-direction: row; 
+}
+div#data{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    margin-bottom: 1vw;
+}
+p.titAva, p.titName, p.titMail, p.titPhone{
+    /* border: solid 1px; */
+    font-weight:600;
+    text-align: center;
+    background-color: rgb(148, 148, 148);
+    border-radius: 10px;
+}
+p.titAva{
+    width: 10vw;
+    margin-left:50px;
+    padding: 1vw;
+}
+p.titName{
+    width: 20vw;
+    margin-left:12vw;
+    padding: 1vw;
+}
+p.dataName{
+    width: 20vw;
+    margin:0 0 0 2vw;
+    padding: 1vw;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 10px;
+    height: 30px;
+}
+p.titMail, p.dataMail{
+    width: 32vw;
+    margin-left:2vw;
+    padding: 1vw;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 10px;
+    height: 30px;
+}
+p.titPhone, p.dataPhone{
+    width: 15vw;
+    padding: 1vw;
+    margin-left:2vw;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 10px;
+    height: 30px;
+}
+img{
+    margin-left: 5vw;
+    /* width: 4vw; */
+    border-radius: 15%;
 }
